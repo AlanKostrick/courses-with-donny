@@ -1,0 +1,10 @@
+* {
+	border: 1px dotted #000;
+}
+body {
+	background-color: #888;
+}
+
+.container {
+	background-color: #eee;
+}

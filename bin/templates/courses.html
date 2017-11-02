@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>A list of courses</title>
+
+	<link rel="stylesheet" type="text/css" href="./css/layout.css"/>
+	<link rel="stylesheet" type="text/css" href="./css/style.css"/>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<h1>An Epic List of Courses</h1>
+			<nav>
+				<ul>
+					<li>Page 1</li>
+					<li>Page 2</li>
+					<li>Page 3</li>
+					<li>Page 4</li>
+				</ul>
+			</nav>
+		</header>
+		
+		<div class="courses">
+			<h2 th:each="course: ${courses}" class="course">
+				<a th:href="@{/course(id=${course.id})}" th:text="${course.name}"></a>
+			</h2>
+		</div>
+
+		<section class="course-information">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</section>
+		
+		<form class="add-course" method="POST">
+			<label>Enter name, description and instructor: </label>
+			<input type="text" name="name" />
+			<input type="text" name="description" />
+			<input type="text" name="instructor" />
+			<button th:formaction="@{/add-course}">add</button>	
+		</form>
+		
+		<form method="POST">
+			<label>Enter id of course to remove:</label>
+			<input type="text" name="id" />
+			<button th:formaction="@{/remove-course}">delete</button>
+		</form>
+
+		<footer>
+			<small class="copyright">2017</small>
+			<ul class="contact">
+				<li>555-555-5555</li>
+				<li>name@email.com</li>
+				<li><a href="#">Facebook Page</a></li>
+			</ul>
+		</footer>
+	</div><!-- /.container -->
+</body>
+</html>

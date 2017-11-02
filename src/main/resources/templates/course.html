@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>A course</title>
+</head>
+
+<body>
+
+	<header>
+		<h1> This is a Course </h1>
+	</header>
+
+	<div> 
+		<h2 th:text="${course.name}"></h2>
+		<h2 th:text="${course.description}"></h2>
+		<h2 th:text="'Instructor: ' + ${course.instructor}"></h2>
+		<a href="http://localhost:8080/courses">Back to home</a>
+	</div>
+
+</body>
+</html>
